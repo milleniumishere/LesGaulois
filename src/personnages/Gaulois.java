@@ -10,11 +10,6 @@ public class Gaulois {
 		this.force = force;
 	}
 
-	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Asterix", 8);
-		System.out.println(asterix);
-	}
-
 	@Override
 	public String toString() {
 		return nom;
@@ -44,5 +39,11 @@ public class Gaulois {
 
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
+	}
+
+
+	public static void main(String[] args) {
+		Gaulois asterix = new Gaulois("Asterix", 8);
+		System.out.println(asterix);
 	}
 }
