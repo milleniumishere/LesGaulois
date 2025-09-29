@@ -2,11 +2,11 @@ package personnages;
 
 public class Gaulois {
 	private String nom;
-	private int froce;
+	private int force;
 
-	public Gaulois(String nom, int froce) {
+	public Gaulois(String nom, int force) {
 		this.nom = nom;
-		this.froce = froce;
+		this.force = force;
 	}
 
 	public String getNom() {
