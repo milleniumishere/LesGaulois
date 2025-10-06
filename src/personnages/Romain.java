@@ -8,7 +8,9 @@ public class Romain {
 		this.nom = nom;
 		this.force = force;
 	}
-	
+	public static void main(String[] args) {
+		
+	}
 	public String getNom() {
 		return nom;
 	}
@@ -26,6 +28,7 @@ public class Romain {
 		force = force - forceCoup;
 		if(force<1) {
 			parler("J'abandonne !");
+			force = 0;
 		} else {
 			parler("Aie !");
 		}
