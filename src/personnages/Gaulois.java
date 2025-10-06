@@ -32,7 +32,7 @@ public class Gaulois {
 		Village village = this.getVillage();
 		String texte = ". Je voyage de villages en villages.";
 		if (village != null) {
-			if (village.getChef().getNom() == nom) {
+			if (village.getChef().getNom() == this.nom) {
 				texte = ".  Je suis le chef du village " + village.getNom();
 			} else {
 				texte = ". J'habite le village " + village.getNom();
@@ -51,7 +51,7 @@ public class Gaulois {
 	}
 
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		System.out.println(nom + " envoie un grand coup dans la mï¿½choire de " + romain.getNom());
 		int forceCoup = force;
 		if (effetPotion > 0) {
 			forceCoup = forceCoup * effetPotion;
