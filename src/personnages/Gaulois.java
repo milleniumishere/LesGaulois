@@ -28,10 +28,18 @@ public class Gaulois {
 		return nom;
 	}
 
-	public void sePresenter(String texte) {
-		System.out.println(this.getVillage());
-		
-		System.out.println(prendreParole() + "Bonjour, je m'appelle "+nom+texte);
+	public void sePresenter() {
+		Village village = this.getVillage();
+		String texte = ". Je voyage de villages en villages.";
+		if (village != null) {
+			if (village.getChef().getNom() == nom) {
+				texte = ".  Je suis le chef du village " + village.getNom();
+			} else {
+				texte = ". J'habite le village " + village.getNom();
+			}
+		}
+
+		System.out.println(prendreParole() + "Bonjour, je m'appelle " + nom + texte);
 	}
 
 	private String prendreParole() {
@@ -41,7 +49,7 @@ public class Gaulois {
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 	}
-	
+
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
 		int forceCoup = force;
@@ -55,7 +63,6 @@ public class Gaulois {
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
 	}
-
 
 	public static void main(String[] args) {
 		Gaulois asterix = new Gaulois("Asterix", 8);
