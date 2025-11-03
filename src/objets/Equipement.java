@@ -9,12 +9,10 @@ public enum Equipement {
 		this.nom=nom;
 	}
 	
+	@Override
 	public String toString() {
 		return nom;
 	}
 	
-	public static void main(String[] args) {
-        Equipement e = Equipement.CASQUE;
-        System.out.println(e);
-    }
+	
 }

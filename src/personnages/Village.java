@@ -6,21 +6,6 @@ public class Village {
 	private Gaulois chef;
 	private Gaulois[] villageois;
 
-	public static void main(String[] args) {
-		Gaulois abraracourcix = new Gaulois("Abraracourcix", 6);
-		Village village = new Village("Village des Irreductibles", abraracourcix, 30);
-		Gaulois asterix = new Gaulois("Asterix", 8);
-		village.ajouterVillagois(asterix);
-		Gaulois gaulois = village.trouverVillageois(1);
-		System.out.println(gaulois);
-		gaulois = village.trouverVillageois(2);
-		System.out.println(gaulois);
-		village.afficherVillageois();
-		asterix.sePresenter();
-		abraracourcix.sePresenter();
-	}
-
-	
 	public Village(String nom, Gaulois chef, int habitantsMax) {
 		this.nom = nom;
 		this.chef = chef;
@@ -37,18 +22,13 @@ public class Village {
 	}
 
 	public void ajouterVillagois(Gaulois gaulois) {
-		if (nbVillageois == villageois.length) {
-			Gaulois[] nouveauVillageois = new Gaulois[villageois.length + 1];
-
-			for (int i = 0; i < villageois.length; i++) {
-				nouveauVillageois[i] = villageois[i];
-			}
-
-			villageois = nouveauVillageois;
+		if (nbVillageois < villageois.length) {
+			villageois[nbVillageois] = gaulois;
+			nbVillageois++;
+			gaulois.setVillage(this);
+		} else {
+			System.out.println("Le village est déjà plein, impossible d’ajouter " + gaulois.getNom() + " !");
 		}
-		villageois[nbVillageois] = gaulois;
-		nbVillageois++;
-		gaulois.setVillage(this);
 	}
 
 	public Gaulois trouverVillageois(int numeroGaulois) {
@@ -60,13 +40,27 @@ public class Village {
 	}
 
 	public void afficherVillageois() {
-		System.out.println("Dans le village "+this.nom+" du chef " + this.chef
-				+ " vivent les legendaires gaulois :");
+		System.out
+				.println("Dans le village " + this.nom + " du chef " + this.chef + " vivent les legendaires gaulois :");
 		for (Gaulois gaulois : this.villageois) {
 			Gaulois val = gaulois;
 			if (val != null)
 				System.out.println("- " + val);
 		}
+	}
+
+	public static void main(String[] args) {
+		Gaulois abraracourcix = new Gaulois("Abraracourcix", 6);
+		Village village = new Village("Village des Irreductibles", abraracourcix, 30);
+		Gaulois asterix = new Gaulois("Asterix", 8);
+		village.ajouterVillagois(asterix);
+		Gaulois gaulois = village.trouverVillageois(1);
+		System.out.println(gaulois);
+		gaulois = village.trouverVillageois(2);
+		System.out.println(gaulois);
+		village.afficherVillageois();
+		asterix.sePresenter();
+		abraracourcix.sePresenter();
 	}
 
 }

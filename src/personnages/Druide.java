@@ -7,7 +7,7 @@ public class Druide {
 
 	public Druide(String nom, int force) {
 		this.nom = nom;
-		this.force = force;
+		this.setForce(force);
 	}
 
 	public String getNom() {
@@ -40,6 +40,14 @@ public class Druide {
 		} else {
 			parler("Désolé "+nomGaulois+" il n'y a plus une seule goutte de potion.");
 		}
+	}
+
+	public int getForce() {
+		return force;
+	}
+
+	public void setForce(int force) {
+		this.force = force;
 	}
 
 }
