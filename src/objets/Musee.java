@@ -6,9 +6,14 @@ public class Musee {
     private Trophee[] trophee;
     private int nbTrophees;
 
+    public Musee() {
+        trophee = new Trophee[200];
+        nbTrophees = 0;
+    }
+
     public void donnerTrophee(Gaulois gaulois, Equipement equipement){
+        trophee[nbTrophees] = new Trophee(equipement, gaulois);
         nbTrophees++;
-        trophee[nbTrophees] = new Trophee();
     }
 
     public String extraireInstructionsOCaml() {
@@ -16,7 +21,8 @@ public class Musee {
         ocaml.append("let musee = [\n");
 
         for (int i = 0; i < nbTrophees; i++) {
-            ocaml.append("\"" + trophee[i].donnerNom() + "\", \"" + trophee[i].getEquipements().getNom() + "\"");
+            ocaml.append("\"" + trophee[i].donnerNom() + "\", \"" 
+                         + trophee[i].getEquipement().getNom() + "\"");
 
             if (i < nbTrophees - 1) {
                 ocaml.append(";\n");
@@ -26,8 +32,6 @@ public class Musee {
         }
 
         ocaml.append("]");
-        String str = ocaml.toString();
-        return str;
+        return ocaml.toString();
     }
 }
-

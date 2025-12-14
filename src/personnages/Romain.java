@@ -66,13 +66,13 @@ public class Romain {
 		String texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
 		int resistanceEquipement = 0;
 		if (nbEquipement > 0 && equipements[0] != null) {
-			texte += "\nMais heureusement, grace à mon équipement sa force est diminué de ";
+			texte += "\nMais heureusement, grace ï¿½ mon ï¿½quipement sa force est diminuï¿½ de ";
 			for (int i = 0; i < nbEquipement; i++) {
 
-				if (equipements[i].equals(Equipement.BOUCLIER)) {
+				if (equipements[i].equals(Equipement.Bouclier)) {
 					System.out.println("Equipement bouclier");
 					resistanceEquipement += 8;
-				} else if (equipements[i].equals(Equipement.CASQUE)) {
+				} else if (equipements[i].equals(Equipement.Casque)) {
 					System.out.println("Equipement casque");
 					resistanceEquipement += 5;
 				}
@@ -94,7 +94,7 @@ public class Romain {
 
 	private Equipement[] ejecterEquipement() {
 		Equipement[] equipementEjecte = new Equipement[nbEquipement];
-		System.out.println("L'équipement de " + nom + " s'envole sous la force du coup.");
+		System.out.println("L'ï¿½quipement de " + nom + " s'envole sous la force du coup.");
 
 		int nbEquipementEjecte = 0;
 		for (int i = 0; i < nbEquipement; i++) {
@@ -123,11 +123,11 @@ public class Romain {
 			break;
 
 		case 2:
-			System.out.println(role + nom + "est déjà bien protégé !");
+			System.out.println(role + nom + "est dï¿½jï¿½ bien protï¿½gï¿½ !");
 			break;
 
 		default:
-			System.out.println("Erreur : nombre d'équipements invalide (" + nbEquipement + ")");
+			System.out.println("Erreur : nombre d'ï¿½quipements invalide (" + nbEquipement + ")");
 			break;
 		}
 	}
@@ -135,15 +135,15 @@ public class Romain {
 	private void ajouterEquipement(Equipement equipement) {
 		equipements[nbEquipement] = equipement;
 		nbEquipement++;
-		System.out.println("Le soldat " + nom + " s'équipe avec " + equipement);
+		System.out.println("Le soldat " + nom + " s'ï¿½quipe avec " + equipement);
 	}
 
 	public static void main(String[] args) {
 		Romain minus = new Romain("Minus", 6);
-		minus.sEquiper(Equipement.CASQUE);
-		minus.sEquiper(Equipement.CASQUE);
-		minus.sEquiper(Equipement.BOUCLIER);
-		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.Casque);
+		minus.sEquiper(Equipement.Casque);
+		minus.sEquiper(Equipement.Bouclier);
+		minus.sEquiper(Equipement.Bouclier);
 	}
 
 	public boolean isVainqueur() {

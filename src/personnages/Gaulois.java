@@ -1,6 +1,7 @@
 package personnages;
 
 import objets.Equipement;
+import objets.Musee;
 
 public class Gaulois {
 	private String nom;
@@ -67,7 +68,7 @@ public class Gaulois {
 //		romain.recevoirCoup(forceCoup / 3);
 //	}
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		System.out.println(nom + " envoie un grand coup dans la mï¿½choire de " + romain.getNom());
 		Equipement[] tropheesGaulois = romain.recevoirCoup((force / 3) * effetPotion);
 		for (int i = 0; tropheesGaulois != null && i < tropheesGaulois.length; i++, nbTrophees++) {
 			this.trophees[nbTrophees] = tropheesGaulois[i];
@@ -82,4 +83,13 @@ public class Gaulois {
 		Gaulois asterix = new Gaulois("Asterix", 8);
 		System.out.println(asterix);
 	}
+
+	public void faireUneDonation(Musee musee){
+        System.out.println(prendreParole() + "Je donne au musee tous mes trophees :");
+        for (int i =0; i<nbTrophees; i++){
+            System.out.println("- " + trophees[i].getNom());
+            musee.donnerTrophee(this,trophees[i]);
+        }
+        nbTrophees = 0;
+    }
 }
